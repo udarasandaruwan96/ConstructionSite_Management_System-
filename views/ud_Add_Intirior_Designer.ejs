@@ -1,0 +1,183 @@
+<%- include('layout/header')%>
+
+<div class="container">
+    <div>
+        <div class="row my-4">
+            <div class="col-lg-26">
+                <% if (message) { %> 
+                    <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                        <button class="btn-close" type="button" data-bs-dismiss="alert"
+                        arial-label="Close"></button>
+                        <strong><%= message.message %></strong>
+                    </div>
+                <% } %>
+    
+                <div class="table-responsive">
+    
+                    <% if (employees != '') { %>
+                        <table>
+                            <thead>
+                                <tr class="table-success fontS">
+                                    <th>Employee Type</th>
+                                    <th>Full Name</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Qualifications</th>
+                                    <th>Profile Picture</th>
+                                    <th>Project 1 Image</th>
+                                    <th>Project 1 Description</th>
+                                    <th>Project 2 Image</th>
+                                    <th>Project 2 Description</th>
+                                    <th>Project 3 Image</th>
+                                    <th>Project 3 Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% employees.forEach((row,index)=> { %>
+                                <tr class="align-middle">
+                                    <td><%= row.employeeType %></td>
+                                    <td><%= row.fullName %></td>
+                                    <td><%= row.mobile %></td>
+                                    <td><%= row.email %></td>
+                                    <td><%= row.qualifications %></td>
+                                    <td><img src="<%= row.profile_pic %>" width="50" class="img-proficepic" mt-1 /></td>
+                                    <td><img src="<%= row.project01_img %>" width="50" class="img-proj1" mt-1 /></td>
+                                    <td><%= row.project01_disc %></td>
+                                    <td><img src="<%= row.project02_img %>" width="50" class="img-proj2" mt-1 /></td>
+                                    <td><%= row.project02_disc %></td>
+                                    <td><img src="<%= row.project03_img %>" width="50" class="img-proj3" mt-1 /></td>
+                                    <td><%= row.project03_disc %></td>
+                                </tr>
+                                 <% }) %>
+                            </tbody>
+                        </table>
+                    <% }  else { %>
+                        <h1 class="text-center text-secondary mt-5">No employee found in the database .!</h1>
+                    <% } %>
+    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<br/>
+<br/>
+
+
+<div class = "Add_IntiriorDesignerForm">
+    <div class="container">
+        <div>
+            <div>
+                <h3 class="container mt-5 d-flex justify-content-center">Add Interior Designer</h3>
+                
+               <% if(typeof alert != 'undefined') { %>
+                    <% alert.forEach(function(error) { %>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong><%= error.msg %></strong>
+                            <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                    <% }) %>
+                <% } %>
+
+                <form action="/addIntiriorDesigner" method="post" id="ädd-form" enctype="multipart/form-data">
+                    <div class="form-group row mt-3">
+                        <label for="architect" class="col-sm-2 col-form-label required"> Interior Designer's Name</label>
+                        <div class="col-sm-8">
+                           <input type="text" class="form-control" name="Name" placeholder="Name" required></center>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="Email" class="col-sm-2 col-form-label required">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="Email" placeholder="Email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="Phone" class="col-sm-2 col-form-label required">Mobile Number</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" name="Phone" placeholder="Mobile" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mt-3">
+                        <label for="Qualifications" class="col-sm-2 col-form-label required"> Qualifications</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="Qualifications" placeholder="Qualifications" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mt-3">
+                        <label for="ProfilePicture" class="col-sm-2 col-form-label required"> Profile Picture</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control" name="ProfilePicture" placeholder="Select Image" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="FirstProjectPicture" class="col-sm-2 col-form-label required"> Project 01 Image</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control" name="FirstProjectPicture" placeholder="Select Image" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="FirstProjectDiscrip" class="col-sm-2 col-form-label required">Project 01 Description </label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" class="form-control" name="FirstProjectDiscrip"
+                                placeholder="First Project Description" rows="3" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="SecondProjectPicture" class="col-sm-2 col-form-label">Project 02 Image</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control" name="SecondProjectPicture" placeholder="Select Image">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="SecondProjectDiscrip" class="col-sm-2 col-form-label">Project 02 Description</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" class="form-control" name="SecondProjectDiscrip"
+                                placeholder="Second Project Description" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
+
+                        <label for="ThirdProjectPicture" class="col-sm-2 col-form-label">Project 03 Image</label>
+                        <div class="col-sm-8">
+                            <input type="file" class="form-control" name="ThirdProjectPicture" placeholder="Select Image">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row mt-3">
+                        <label for="ThirdProjectDiscrip" class="col-sm-2 col-form-label">Project 03 Description</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" class="form-control" name="ThirdProjectDiscrip"
+                                placeholder="Third Project Description" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <center>
+                    <button type="submit" class="btn btn-success col-sm-1 mt-3"><b>Submit</b></button>
+                    </center>
+                </form>
+            <center>
+                <a href='/addIntiriorDesigner'><button class='btn btn-info col-sm-1 mt-3'><b>Clear</b></button></a>
+            </center>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+    <%- include('layout/footer')%>

@@ -1,0 +1,69 @@
+<%- include('layout/header') %>
+
+<div>
+    <div class="row my-4">
+        <div class="col-lg-26">
+            <% if (message) { %> 
+                <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                    <button class="btn-close" type="button" data-bs-dismiss="alert"
+                    arial-label="Close"></button>
+                    <strong><%= message.message %></strong>
+                </div>
+            <% } %>
+
+            <div class="table-responsive">
+
+                <% if (customers != '') { %>
+                    <table >
+                        <thead>
+                            <tr class="table-dark">
+                                <th>Full Name</th>
+                                <th>NIC Number</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% employees.forEach((row,index)=> { %>
+                            <tr class="align-middle">
+                                <td><%= row.fullName %></td>
+                                <td><%= row.nic %></td>
+                                <td><%= row.email %></td>
+                                <td><%= row.mobile %></td>
+                                <td><%= row.address %></td>
+                                <td><img src="<%= row.profile_pic %>" width="50" class="img-proficepic" mt-1 /></td>
+                                <td><img src="<%= row.project01_img %>" width="50" class="img-proj1" mt-1 /></td>
+                                <td><%= row.project01_disc %></td>
+                                <td><img src="<%= row.project02_img %>" width="50" class="img-proj2" mt-1 /></td>
+                                <td><%= row.project02_disc %></td>
+                                <td><img src="<%= row.project03_img %>" width="50" class="img-proj3" mt-1 /></td>
+                                <td><%= row.project03_disc %></td>
+                                <td>
+                                    <a href="/edit_Employee/<%= row._id %>"
+                                        class="text-success"> <button
+                                            class="btn btn-outline-warning"><i
+                                                class="fa-solid fa-pen-to-square"></i>
+                                            Edit</button></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="delete_Employee/<%= row._id %>"
+                                        class="text-success"><button
+                                            class="btn btn-outline-danger"><i
+                                                class="fa-solid fa-trash"></i>Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                             <% }) %>
+                        </tbody>
+                    </table>
+                <% }  else { %>
+                    <h1 class="text-center text-secondary mt-5">No customer found in the database .!</h1>
+                <% } %>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer') %>

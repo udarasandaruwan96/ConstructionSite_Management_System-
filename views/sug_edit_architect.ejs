@@ -1,0 +1,106 @@
+<%- include('layout/header')%>
+<div class="frameEditArchiForm ">
+<div class="container">
+   
+            <h3 class="container mt-5 d-flex justify-content-center">Edit Architect (<%= data.architect %>)</h3>
+
+            <form action="/update_architect/<%= data._id %>" method="post" id="ädd-form" enctype="multipart/form-data">
+              <div class="form-group row mt-3">
+                <label for="architect" class="col-sm-2 col-form-label"> Architect</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="architect" placeholder="architect" value="<%= data.architect%>">
+                </div>
+              </div>
+
+                <div class="form-group row mt-3">
+                  <label for="mobile" class="col-sm-2 col-form-label">mobile</label>
+                  <div class="col-sm-8">
+                    <input type="mobile" class="form-control" name="mobile" aria-describedby="mobile" placeholder="mobile" value="<%= data.mobile %>">
+                  </div> 
+                </div>
+   
+                <div class="form-group row mt-3">
+                    <label for="email" class="col-sm-2 col-form-label">email</label>
+                    <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" placeholder="email" value="<%= data.email%>">
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row mt-3">
+                <label for="qualifications" class="col-sm-2 col-form-label"> qualifications</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="qualifications" placeholder="qualifications" value="<%= data.qualifications%>">
+                </div>
+                  </div>
+
+
+
+                  <div class="form-group row mt-3">
+                    <label for="profile_pic" class="col-sm-2 col-form-label"> profile_pic</label>
+                    <div class="col-sm-8">
+                    <input type="file" class="form-control" name="profile_pic" placeholder="Select Image" >
+                    <img src="/<%= data.profile_pic %>" width="100" class="thumbnail mt-1"/>
+                    <input type="hidden" class="form-control" name="old_profile_pic" value="<%= data.profile_pic %>" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row mt-3">
+                    <label for="project01_img" class="col-sm-2 col-form-label"> project01_img</label>
+                    <div class="col-sm-8">
+                      <input type="file" class="form-control" name="project01_img" placeholder="Select Image">
+                    <img src="/<%= data.project01_img %>" width="100" class="thumbnail mt-1"/>
+                    <input type="hidden" class="form-control" name="old_project01_img" value="<%= data.project01_img %>" >
+                    </div>
+                  </div>
+                   
+                  <div class="form-group row mt-3">
+                    <label for="project01_disc" class="col-sm-2 col-form-label">project01_disc</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control"  name="project01_disc" placeholder="project01_disc"  value="<%= data.project01_disc %>" rows="3"></textarea> 
+                    </div>
+                   
+                  </div>
+
+                  <div class="form-group row mt-3">
+                    <label for="project02_img" class="col-sm-2 col-form-label">project02_img</label>
+                    <div class="col-sm-8">
+                    <input type="file" class="form-control" name="project02_img" placeholder="Select Image">
+                    <img src="/<%= data.project02_img %>" width="100" class="thumbnail mt-1"/>
+                    <input type="hidden" class="form-control" name="old_project02_img" value="<%= data.project02_img %>" >
+                    </div>
+                  </div>
+                          
+                  <div class="form-group row mt-3">
+                    <label for="project02_disc" class="col-sm-2 col-form-label">project02_disc</label>
+                    <div class="col-sm-8">
+                    <input type="text" name="project02_disc" placeholder="project02_disc" value="<%= data.project02_disc %>" rows="3"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-group row mt-3">
+                    <label for="project03_img" class="col-sm-2 col-form-label">project03_img</label>
+                    <div class="col-sm-8">
+                    <input type="file" class="form-control" name="project03_img" placeholder="Select Image">
+                    <img src="/<%= data.project03_img %>" width="100" class="thumbnail mt-1"/>
+                    <input type="hidden" class="form-control" name="old_project03_img" value="<%= data.project03_img %>" >
+                    </div>
+                  </div>
+                          
+                  <div class="form-group row mt-3">
+                    <label for="project03_disc" class="col-sm-2 col-form-label">project03_disc</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control"  name="project03_disc" placeholder="project03_disc" value="<%= data.project03_disc %>" rows="3"></textarea>
+                    </div>
+                  </div>
+
+                  
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>
+</div> 
+
+      <%- include('layout/footer')%> 

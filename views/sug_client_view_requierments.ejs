@@ -1,0 +1,110 @@
+<%- include('layout/header')%>
+
+<div >
+    <div>
+        <div>
+          <% if (message) { %> 
+            <div class = "alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+               <button class = "btn-close" type = "button" data-bs-dismiss = "alert" aria-label="Close"></button> 
+            <strong><%= message.message %></strong>
+            </div>
+        <% } %>  
+  
+                  <!-- Team Start -->
+                  <div class="canvas_div_pdf">
+                  <h1 class="d-flex justify-content-center">Architecturer Requirements
+                </h1>
+                        <br/>
+                        <br/>
+                          <%if(data!=''){%>
+                            
+                           
+                          
+                                  <% data.forEach((row,index)=>{%>
+
+                                                   
+                                    <div className='container py-5 h-100'>
+                                           <dl class="row">
+                                          <dt class="col-sm-3">Architecture</dt>
+                                          <dd class="col-sm-8"><%= row.Architecture%></dd>
+                                        
+                                          <dt class="col-sm-3">Client_Name</dt>
+                                          <dd class="col-sm-8"><%= row.Client_Name%></dd>
+                                        
+                                          <dt class="col-sm-3">Email</dt>
+                                          <dd class="col-sm-8"><%= row.Email%></dd>
+                                        
+                                          <dt class="col-sm-3 ">Builging_Type</dt>
+                                          <dd class="col-sm-8"><%= row.Builging_Type%></dd>
+                                          
+                                          <dt class="col-sm-3 ">No_of_floors</dt>
+                                          <dd class="col-sm-8"><%= row.No_of_floors%></dd>
+                                        
+                                          <dt class="col-sm-3 ">Estimated_Budget</dt>
+                                          <dd class="col-sm-8"><%= row.Estimated_Budget%></dd>
+                                           
+                                        
+                                          <dt class="col-sm-3 mt-5">Land Details</dt>
+                                          <dd class="col-sm-8 mt-5">
+                                            <dl class="row">
+                                              <dt class="col-sm-4">Location</dt>
+                                              <dd class="col-sm-8"><%= row.Location%></dd>
+                                        
+                                              <dt class="col-sm-4">Plan_of_the_Land</dt>
+                                              <dd class="col-sm-8">
+                                                <img src="/<%= row.Plan_of_the_Land%>" width="100" class="thumbnail mt-1"/></dd>
+                                            </dl>
+                                          </dd>
+
+                                           
+                                      
+                                        
+                                          <dt class="col-sm-3 mt-5">Rooms and Area Details</dt>
+                                          <dd class="col-sm-8 mt-5" >
+                                            <dl class="row">
+                                              <dt class="col-sm-4">Bed_Rooms</dt>
+                                              <dd class="col-sm-8"><%= row.Bed_Rooms%></dd>
+                                        
+                                              <dt class="col-sm-4">Bathrooms</dt>
+                                              <dd class="col-sm-8"><%= row.Bathrooms%></dd>
+
+                                              <dt class="col-sm-4">Parking_Area</dt>
+                                              <dd class="col-sm-8"><%= row.Parking_Area%></dd>
+                                        
+                                              <dt class="col-sm-4">Other_Requirements</dt>
+                                              <dd class="col-sm-8"><%= row.Other_Requirements%></dd>
+                                            </dl>
+                                          </dd>
+                                        
+                                        </dl>
+                                    
+                                      </div>
+
+                                    </div>
+                                     <center>
+                                      <button class="btn btn-outline-info btn-lg" onclick="getPDF();">
+                                        <i class="fa-solid fa-download">
+                                        </i> Download
+                                        </button>
+                                    <a href="/edit_architect_requirements/<%=row._id%>" class="text-success"> <button class="btn btn-outline-warning btn-lg"><i class="fa-solid fa-pen-to-square"></i> Edit</button></a>
+                                    <a href="/delete_architect_requirements/<%=row._id%>" class="text-success"><button class="btn btn-outline-danger btn-lg"><i class="fa-solid fa-trash"></i>Delete</button></a>
+                                    
+                                    </center>
+                                   
+                                  <%})%>
+                            
+                            
+                                  
+                              
+                              
+                              <%}else{%>
+                                <h1 class="text-center text-secondary mt-5">No Architect found in the database!</h1>
+                                   <%}%>
+
+                                    </div>
+
+        </div>
+    </div>
+</div>
+      
+ <%- include('layout/footer')%>  

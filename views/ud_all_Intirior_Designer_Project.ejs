@@ -1,0 +1,53 @@
+<%- include('layout/header')%>
+             <!-- Blog Start -->
+        <div class="blog">
+        <div class="container">
+            <div class="section-header text-center">
+                <p> <%= intiriorDesigner.Name %></p>
+                <h2> <h3 class="container"> Latest Projects Done By <%= intiriorDesigner.Name %></h3></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="/<%= intiriorDesigner.FirstProjectPicture %>" width="100" class="thumbnail mt-1"/>
+                        </div>
+                        <div class="blog-text">
+                            <p>
+                                <%= intiriorDesigner.FirstProjectDiscrip %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                        <img src="/<%= intiriorDesigner.SecondProjectPicture %>" width="100" class="thumbnail mt-1"/>
+                        </div>
+                        <div class="blog-text">
+                            <p>
+                                <%= intiriorDesigner.SecondProjectDiscrip %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="/<%= intiriorDesigner.ThirdProjectPicture %>" width="100" class="thumbnail mt-1"/>
+                        </div>
+                        <div class="blog-text">
+                            <p>
+                                <%= intiriorDesigner.ThirdProjectDiscrip %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+</div>
+</div>
+</div>
+      
+<%- include('layout/footer')%> 

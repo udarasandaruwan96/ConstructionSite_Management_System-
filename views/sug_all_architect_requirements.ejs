@@ -1,0 +1,73 @@
+<%- include('layout/header') %>
+
+<div><div class="canvas_div_pdf">
+    <br/>
+    <center><h2>Client Requirements for the Architect Designers</h2></center>
+    <div class="row my-4">
+        <div class="col-lg-26">
+            <% if (message) { %> 
+                <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                    <button class="btn-close" type="button" data-bs-dismiss="alert"
+                    arial-label="Close"></button>
+                    <strong><%= message.message %></strong>
+                </div>
+            <% } %>
+
+            <div class="table-responsive">
+
+                <% if (data != '') { %>
+                    <table  class="table table-striped text-center">
+                        <thead>
+                            <tr class="table-dark">
+                                <th>Architecture</th>
+                                <th>Client_Name</th>
+                                <th>Email</th>
+                                <th>Builging_Type</th>
+                                <th>No_of_floors</th>
+                                <th>Estimated_Budget</th>
+                                <th>Location</th>
+                                <th>Plan_of_the_Land</th>
+                                <th>Bed_Rooms</th>
+                                <th>Bathrooms</th>
+                                <th>Parking_Area</th>
+                                <th>Other_Requirements</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% data.forEach((row,index)=> { %>
+                            <tr class="align-middle">
+                                <td><%= row.Architecture %></td>
+                                <td><%= row.Client_Name %></td>
+                                <td><%= row.Email %></td>
+                                <td><%= row.Builging_Type %></td>
+                                <td><%= row. No_of_floors %></td>
+                                <td><%= row.Estimated_Budget %></td>
+                                <td><%= row.Location %></td>
+                                <td><img src="<%= row.Plan_of_the_Land %>" width="50" class="img-proj1" mt-1 /></td>
+                                <td><%= row.Bed_Rooms %></td>
+                                <td><%= row.Bathrooms %></td>
+                                <td><%= row.Parking_Area %></td>
+                                <td><%= row.Other_Requirements %></td>
+                 
+                            </tr>
+                             <% }) %>
+                        </tbody>
+                    </table>
+                <% }  else { %>
+                    <h1 class="text-center text-secondary mt-5">No employee found in the database .!</h1>
+                <% } %>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/><br/>
+<button class="btn btn-outline-info btn-lg" onclick="getPDF();">
+    <i class="fa-solid fa-download">
+    </i> Download
+    </button>
+</div>
+<%- include('layout/footer') %>

@@ -1,0 +1,178 @@
+<%- include('layout/header')%>
+
+            <div class = "Client_Edit_IntiriorDesignerForm ">
+                <div class="container">
+                    <div>
+                        <div>
+                            <h3 class="container mt-5 d-flex justify-content-center">Update Intirior Designer Requirements</h3>
+            
+                            <% if(typeof alert != 'undefined') { %>
+                                <% alert.forEach(function(error) { %>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong><%= error.msg %></strong>
+                                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                <% }) %>
+                            <% } %>
+                            <form action="/updateClientInteriorDesignerReq/<%= clientIntiriorDesigner._id %>" method="post" id="ädd-form">
+                               
+                                <div class="form-group row mt-3">
+                                    <label for="InteriorName" class="col-sm-2 col-form-label" >Intirior Designer</label>
+                                    <div class="col-sm-8">
+                                       <input type="text" class="form-control disableFeild" name="InteriorName" value="<%= clientIntiriorDesigner.InteriorName%>"></center>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="ClientName" class="col-sm-2 col-form-label">Client Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="ClientName" placeholder="Client Name" value="<%= clientIntiriorDesigner.ClientName %>" required>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="Email" placeholder="Email" value="<%= clientIntiriorDesigner.Email %>" required>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Phone" class="col-sm-2 col-form-label">Mobile Number</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" name="Phone" placeholder="mobile" value="<%= clientIntiriorDesigner.Phone %>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="Location" class="col-sm-2 col-form-label">Location</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="Location" placeholder="Location" value="<%= clientIntiriorDesigner.Location %>" required>
+                                    </div>
+                                </div>
+    
+                                <div class="form-group row mt-3">
+                                    <label for="ThemeColour" class="col-sm-2 col-form-label">ThemeColour</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="ThemeColour" placeholder="ThemeColour" value="<%= clientIntiriorDesigner.ThemeColour %>" required>
+                                    </div>
+                                </div>
+            
+            
+                                <div class="form-group row mt-3">
+                                    <label for="RoofColour" class="col-sm-2 col-form-label">RoofColour</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="RoofColour" placeholder="RoofColour" value="<%= clientIntiriorDesigner.RoofColour %>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="FloorColour" class="col-sm-2 col-form-label">FloorColour</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="FloorColour" placeholder="FloorColour" value="<%= clientIntiriorDesigner.FloorColour %>" required>
+                                    </div>
+                                </div>
+            
+                               <div class="form-group row mt-3">
+                                        <label for="Funiture" class="col-sm-2 col-form-label">Funiture</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="Funiture" placeholder="Funiture" value="<%= clientIntiriorDesigner.Funiture %>" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row mt-3">
+                                    <label for="Pantry" class="col-sm-2 col-form-label">Pantry</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="Pantry" placeholder="Pantry" value="<%= clientIntiriorDesigner.Pantry %>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="Deco" class="col-sm-2 col-form-label">Deco</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="Deco" placeholder="Deco" value="<%= clientIntiriorDesigner.Deco %>" required>
+                                    </div>
+                                </div>
+
+<!--             
+                                <div class="form-group row mt-3">
+                                    <label for="Funiture" class="col-sm-2 col-form-label">Funiture</label>
+                                    <div class="col-sm-8">
+                                        <select 
+                                        class="form-control"  
+                                        name="Funiture"
+                                        value="<%= clientIntiriorDesigner.Funiture %>"
+                                        required
+                                        >
+                                        <option value="" disabled selected hidden>Please Choose...</option>
+                                        <option value = "Required">Required</option>
+                                        <option value = "Not Required">Not Required</option>
+                                        </select>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Pantry" class="col-sm-2 col-form-label">Pantry Garden</label>
+                                    <div class="col-sm-8">
+                                        <select 
+                                        class="form-control"  
+                                        name="Pantry"
+                                        value="<%= clientIntiriorDesigner.Pantry %>"
+                                        required
+                                        >
+                                        <option value="" disabled selected hidden>Please Choose...</option>
+                                        <option value = "Required">Required</option>
+                                        <option value = "Not Required">Not Required</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="Deco" class="col-sm-2 col-form-label">Kids Deco area </label>
+                                    <div class="col-sm-8">
+                                        <select 
+                                        class="form-control"  
+                                        name="Deco"
+                                        value="<%= clientIntiriorDesigner.Deco %>"
+                                        required
+                                        >
+                                        <option value="" disabled selected hidden>Please Choose...</option>
+                                        <option value = "Required">Required</option>
+                                        <option value = "Not Required">Not Required</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+
+
+                                 <div class="form-group row mt-3">
+                                    <label for="Budget" class="col-sm-2 col-form-label">Estimated Budget</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" name="Budget" placeholder="Estimated Budget" value="<%= clientIntiriorDesigner.Budget %>" required>
+                                    </div>
+                                </div>
+
+            
+                                <div class="form-group row mt-3">
+                                    <label for="SpecialReq" class="col-sm-2 col-form-label">Special Requrements</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" class="form-control" name="SpecialReq"
+                                            placeholder="Special Requirements" rows="4" value="<%= clientIntiriorDesigner.SpecialReq %>">
+                                        </input>
+                                    </div>
+                                </div>
+            
+                                <center>
+                                <button type="submit" class="btn btn-success col-sm-1 mt-3"><b>Submit</b></button>
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+<%- include('layout/footer')%> 

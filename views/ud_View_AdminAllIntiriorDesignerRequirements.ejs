@@ -1,0 +1,63 @@
+<%- include('layout/header') %>
+
+<div>
+    <div class="canvas_div_pdf">
+        <br/>
+        <center><h2>Client Requirements for the Intirior Designer</h2></center>
+    <div class="row my-4">
+        <div class="col-lg-26">
+            <div class="table-responsive">
+                <% if (clientIntiriorDesigner != '') { %>
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr class="table-dark">
+                                <th>Garden Designer</th>
+                                <th>Client Name</th>
+                                <th>Email</th>
+                                <th>Mobile Number</th>
+                                <th>Location</th>
+                                <th>Theme Colour</th>
+                                <th>Roof Colour</th>
+                                <th>Floor Colour</th>
+                                <th>Require Funiture</th>
+                                <th>Require Pantry Set</th>
+                                <th>Require Deco</th>
+                                <th>Estimated Budget</th>
+                                <th>Special Requrements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% clientIntiriorDesigner.forEach((row,index)=> { %>
+                            <tr class="align-middle">
+                                <td><%= row.InteriorName %></td>
+                                <td><%= row.ClientName %></td>
+                                <td><%= row.Email %></td>
+                                <td><%= row.Phone %></td>
+                                <td><%= row.Location %></td>
+                                <td><%= row.ThemeColour %></td>
+                                <td><%= row.RoofColour %></td>
+                                <td><%= row.FloorColour %></td>
+                                <td><%= row.Funiture %></td>
+                                <td><%= row.Pantry %></td>
+                                <td><%= row.Deco %></td>
+                                <td><%= row.Budget %></td>
+                                <td><%= row.SpecialReq %></td>
+                            </tr>
+                             <% }) %>
+                        </tbody>
+                    </table>
+                <% }  else { %>
+                    <h1 class="text-center text-secondary mt-5">No Intirior Designer Requirements Found In The D.atabase .!</h1>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/>
+<button class="btn btn-outline-info btn-lg" onclick="getPDF();">
+    <i class="fa-solid fa-download">
+    </i> Download
+    </button>
+</div>
+
+<%- include('layout/footer') %>

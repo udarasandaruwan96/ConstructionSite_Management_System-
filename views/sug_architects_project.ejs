@@ -1,0 +1,75 @@
+<%- include('layout/header')%>
+
+    
+           
+            
+           
+
+
+
+
+             <!-- Blog Start -->
+             <div class="blog">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p> <%= data.architect %></p>
+                        <h2> <h3 class="container"> Latest projects done by <%= data.architect %></h3></h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="/<%= data.project01_img %>" width="100" height="200" class="thumbnail mt-1"/>
+                                </div>
+                                
+                                
+                                <div class="blog-text">
+                                    <p>
+                                        <%= data.project01_disc %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    
+                             <img src="/<%= data.project02_img %>" width="100" height="200" class="thumbnail mt-1"/>
+                                </div>
+                              
+                                <div class="blog-text">
+                                    <p>
+                                        <%= data.project02_disc %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="/<%= data.project03_img %>" width="100" height="200" class="thumbnail mt-1"/>
+                                </div>
+                               
+                                
+                                <div class="blog-text">
+                                    <p>
+                                        <%= data.project03_disc %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog End -->
+                  
+                   
+                  
+                  
+                
+              
+        </div>
+    </div>
+</div>
+      
+
+      <%- include('layout/footer')%> 

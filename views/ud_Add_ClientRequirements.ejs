@@ -1,0 +1,201 @@
+<%- include('layout/header')%>
+            <!-- Blog Start -->
+             <div class="blog">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p> <%= intiriorDesigner.Name %></p>
+                        <h2> <h3 class="container"> Latest Projects Done By <%= intiriorDesigner.Name %></h3></h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="/<%= intiriorDesigner.FirstProjectPicture %>" width="100" class="thumbnail mt-1"/>
+                                </div>
+                                <div class="blog-text">
+                                    <p>
+                                        <%= intiriorDesigner.FirstProjectDiscrip %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                <img src="/<%= intiriorDesigner.SecondProjectPicture %>" width="100" class="thumbnail mt-1"/>
+                                </div>
+                                <div class="blog-text">
+                                    <p>
+                                        <%= intiriorDesigner.SecondProjectPicture %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="/<%= intiriorDesigner.ThirdProjectPicture %>" width="100" class="thumbnail mt-1"/>
+                                </div>
+                                <div class="blog-text">
+                                    <p>
+                                        <%= intiriorDesigner.ThirdProjectDiscrip %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog End -->
+            <br/>
+            <br/>
+            <div class = "Add_IntiriorDesignerForm">
+                <div class="container">
+                    <div>
+                        <div>
+                            <h3 class="container mt-5 d-flex justify-content-center">intirior Designer Requirements</h3>
+            
+                            <% if(typeof alert != 'undefined') { %>
+                                <% alert.forEach(function(error) { %>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong><%= error.msg %></strong>
+                                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                <% }) %>
+                            <% } %>
+                            <form action="/addClientInteriorDesignerReq/<%= intiriorDesigner._id %>" method="post" id="ädd-form">
+                               
+                                <div class="form-group row mt-3">
+                                    <label for="InteriorName" class="col-sm-2 col-form-label" >Intirior Designer</label>
+                                    <div class="col-sm-8">
+                                       <input type="text" class="form-control disableFeild" name="InteriorName" value="<%= intiriorDesigner.Name%>"></center>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="ClientName" class="col-sm-2 col-form-label">Client Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="ClientName" placeholder="Client Name" required>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="Email" placeholder="Email" required>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Phone" class="col-sm-2 col-form-label">Mobile Number</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" name="Phone" placeholder="mobile" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="Location" class="col-sm-2 col-form-label">Location</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="Location" placeholder="Location" required>
+                                    </div>
+                                </div>
+    
+                                <div class="form-group row mt-3">
+                                    <label for="ThemeColour" class="col-sm-2 col-form-label">Theme Colour</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="ThemeColour" placeholder="Theme Colour" required>
+                                    </div>
+                                </div>
+            
+            
+                                <div class="form-group row mt-3">
+                                    <label for="RoofColour" class="col-sm-2 col-form-label">Roof Colour</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="RoofColour" placeholder="Roof Colour" required>
+                                    </div>
+                                </div>
+
+                                 <div class="form-group row mt-3">
+                                    <label for="FloorColour" class="col-sm-2 col-form-label">Floor Colour</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="FloorColour" placeholder="Floor Colour" required>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Funiture" class="col-sm-2 col-form-label">Require Funiture</label>
+                                    <div class="col-sm-8">
+                                        <select 
+                                        class="form-control"  
+                                        name="Funiture"
+                                        required
+                                        >
+                                        <option value="" disabled selected hidden>Please Choose...</option>
+                                        <option value = "Required">Required</option>
+                                        <option value = "Not Required">Not Required</option>
+                                        </select>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Pantry" class="col-sm-2 col-form-label">Require Pantry Set</label>
+                                    <div class="col-sm-8">
+                                        <select 
+                                        class="form-control"  
+                                        name="Pantry"
+                                        required
+                                        >
+                                        <option value="" disabled selected hidden>Please Choose...</option>
+                                        <option value = "Required">Required</option>
+                                        <option value = "Not Required">Not Required</option>
+                                        </select>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row mt-3">
+                                    <label for="Deco" class="col-sm-2 col-form-label">Require Deco</label>
+                                    <div class="col-sm-8">
+                                        <select 
+                                        class="form-control"  
+                                        name="Deco"
+                                        required
+                                        >
+                                        <option value="" disabled selected hidden>Please Choose...</option>
+                                        <option value = "Required">Required</option>
+                                        <option value = "Not Required">Not Required</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="Budget" class="col-sm-2 col-form-label">Estimated Budget</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" name="Budget" placeholder="Estimated Budget" required>
+                                    </div>
+                                </div>
+
+            
+                                <div class="form-group row mt-3">
+                                    <label for="SpecialReq" class="col-sm-2 col-form-label">Special Requrements</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" class="form-control" name="SpecialReq"
+                                            placeholder="Special Requirements" rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <center>
+                                <button type="submit" class="btn btn-success col-sm-1 mt-3"><b>Submit</b></button>
+                                </center>
+                            </form>
+                        <center>
+                            <a href='/clientIntiriorDesignerProject/<%= intiriorDesigner._id %>'><button class='btn btn-info col-sm-1 mt-3'><b>Clear</b></button></a>
+                        </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+<%- include('layout/footer')%> 

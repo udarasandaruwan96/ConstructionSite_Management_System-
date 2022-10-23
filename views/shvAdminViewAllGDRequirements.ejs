@@ -1,0 +1,65 @@
+<%- include('layout/header') %>
+
+<div>
+    <div class="canvas_div_pdf">
+        <br/>
+        <center><h2>Client Requirements for the Garden Designers</h2></center>
+    <div class="row my-4">
+        <div class="col-lg-26">
+            <div class="table-responsive">
+                <% if (clientGDs != '') { %>
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr class="table-dark tblhead">
+                                <th>Garden Designer</th>
+                                <th>Client Name</th>
+                                <th>Email</th>
+                                <th>Mobile Number</th>
+                                <th>Garden Area</th>
+                                <th>Estimated Budget</th>
+                                <th>Address</th>
+                                <th>Grass</th>
+                                <th>Swimming Pool</th>
+                                <th>Interlock Garden</th>
+                                <th>Kids Play area </th>
+                                <th>Flower Plants</th>
+                                <th>Fish Pond</th>
+                                <th>Special Requrements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% clientGDs.forEach((row,index)=> { %>
+                            <tr class="tblbody">
+                                <td><%= row.GDName %></td>
+                                <td><%= row.ClientName %></td>
+                                <td><%= row.Email %></td>
+                                <td><%= row.Phone %></td>
+                                <td><%= row.GardenArea %></td>
+                                <td><%= row.Budget %></td>
+                                <td><%= row.Address %></td>
+                                <td><%= row.Grass %></td>
+                                <td><%= row.Pool %></td>
+                                <td><%= row.Interlock %></td>
+                                <td><%= row.Play %></td>
+                                <td><%= row.Flower %></td>
+                                <td><%= row.Pond %></td>
+                                <td><%= row.SpecialReq %></td>
+                            </tr>
+                             <% }) %>
+                        </tbody>
+                    </table>
+                <% }  else { %>
+                    <h1 class="text-center text-secondary mt-5">No Garden Designer Requirements Found In The D.atabase .!</h1>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/>
+<button class="btn btn-outline-info btn-lg" onclick="getPDF();">
+    <i class="fa-solid fa-download">
+    </i> Download
+    </button>
+</div>
+
+<%- include('layout/footer') %>

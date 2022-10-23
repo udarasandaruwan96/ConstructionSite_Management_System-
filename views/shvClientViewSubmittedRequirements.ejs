@@ -1,0 +1,121 @@
+<%- include('layout/header')%>
+    <div class="container frameClientSpReq">
+        <div>
+            <div>
+                <% if (message) { %>
+                    <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <strong>
+                            <%= message.message %>
+                        </strong>
+                    </div>
+                    <% } %>
+                    <div class="canvas_div_pdf">
+                        <h1 class="d-flex justify-content-center">Garden Designer Requirements</h1>
+                        <br>
+                        <%if(clientGDReqs!=''){%>
+                            <% clientGDReqs.forEach((row,index)=>{%>
+                        
+                                <div class="cbb">
+                                    <dl class="row">
+                                        <dt class="col-sm-3">Garden Designer</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.GDName%>
+                                        </dd>
+
+                                        <dt class="col-sm-3">Client Name</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.ClientName%>
+                                        </dd>
+
+                                        <dt class="col-sm-3">Email</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Email%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Mobile Number</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Phone%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Garden Area</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.GardenArea%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Estimated Budget</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Budget%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Address</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Address%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Grass</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Grass%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Swimming Pool</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Pool%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Interlock Garden</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Interlock%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Kids Play Area</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Play%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Flower Plants</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Flower%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Fish Pond</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Pond%>
+                                        </dd>
+                                        <dt class="col-sm-3 ">Special Requirements</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.SpecialReq%>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                </div>
+                                <center>
+                                    <button class="btn btn-outline-info btn-lg" onclick="getPDF();">
+                                        <i class="fa-solid fa-download">
+                                        </i> Download
+                                        </button>
+
+                                    <a href="/editClientGD/<%=row._id%>" class="text-success"> 
+                                    <button class="btn btn-outline-warning btn-lg">
+                                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                                    </button>
+                                    </a>
+
+                                    <a href="/deleteClientGDReq/<%=row._id%>" class="text-success">
+                                    <button class="btn btn-outline-danger btn-lg" onclick="return confirm('Are you sure you want to Delete Requirements?');">
+                                    <i class="fa-solid fa-trash">
+                                    </i>Delete
+                                    </button>
+                                        
+                 
+                                </center>
+                                <%})%>
+                                <%}else{%>
+                                <h1 class="text-center text-secondary mt-5">No Garden Designer Requirements found in the database !
+                                </h1>
+                              <%}%>
+            </div>
+        </div>
+    </div>
+ </div>
+<%- include('layout/footer')%>

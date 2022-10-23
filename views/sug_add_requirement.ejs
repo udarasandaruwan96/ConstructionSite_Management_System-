@@ -1,0 +1,208 @@
+<%- include('layout/header')%>
+
+             <!-- Blog Start -->
+             <div class="blog">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p> <%= data.architect %></p>
+                        <h2> <h3 class="container"> Latest projects done by <%= data.architect %></h3></h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="/<%= data.project01_img %>" width="100" height="200" class="thumbnail mt-1"/>
+                                </div>
+                                
+                                
+                                <div class="blog-text">
+                                    <p>
+                                        <%= data.project01_disc %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    
+                             <img src="/<%= data.project02_img %>" width="100" height="200" class="thumbnail mt-1"/>
+                                </div>
+                              
+                                <div class="blog-text">
+                                    <p>
+                                        <%= data.project02_disc %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="blog-item">
+                                <div class="blog-img">
+                                    <img src="/<%= data.project03_img %>" width="100" height="200" class="thumbnail mt-1"/>
+                                </div>
+                               
+                                
+                                <div class="blog-text">
+                                    <p>
+                                        <%= data.project03_disc %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog End -->
+                  
+                
+<div class = "frameAddArchirequirmentsForm">
+    <div class="container">
+        <div >
+            <div >
+                <h2 class="container mt-5 d-flex justify-content-center">Architecture  Requirements</h2>
+    
+                <% if(typeof alert != 'undefined') { %>
+                  <% alert.forEach(function(error) { %>
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <strong><%= error.msg %></strong>
+                          <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                  <% }) %>
+              <% } %>
+    
+                <form action="/client_project_architects/<%= data._id %>" method="post" id="ädd-form" enctype="multipart/form-data" >
+                  <div  class="form-group row mt-3">
+                    
+                    <label for="Architecture" class="col-sm-2 col-form-label required"> Architect Name</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control disableFeild" name="Architecture" placeholder="Architectur" value="<%= data.architect %>">
+                    </div>
+                  </div>
+    
+                    <div class="form-group row mt-3">
+                      <label for="Client_Name" class="col-sm-2 col-form-label required"> Client_Name</label>
+                      <div class="col-sm-8">
+                      <input type="text" class="form-control" name="Client_Name" aria-describedby="Client_Name" placeholder="Client_Name" required>
+                      </div>
+                    </div>
+       
+                    <div class="form-group row mt-3">
+                        <label for="Email" class="col-sm-2 col-form-label required">Email</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="Email" placeholder="Email" required>
+                        </div>
+                      </div>
+    
+    
+                      <div class="form-group row mt-3">
+                        <label for="Builging_Type" class="col-sm-2 col-form-label required">Builging_Type</label>
+                        <div class="col-sm-8">
+                        <select class="form-control" name="Builging_Type" placeholder="Builging_Type" required>
+                          <option value="" selected disabled hidden>Choose here</option>
+                          <option value="Buliding for House"> Buliding for House</option>
+                          <option value="Buliding for Office"> Buliding for Office</option>
+                           <option value="Building for Business">Building for Business</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        </div>
+                      </div>
+    
+    
+                      <div class="form-group row mt-3">
+                        <label for="No_of_floors" class="col-sm-2 col-form-label required">No_of_floors</label>
+                        <div class="col-sm-8">
+                        <input type="number" class="form-control" name="No_of_floors" placeholder="No_of_floors" required>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row mt-3">
+                        <label for="Estimated_Budget" class="col-sm-2 col-form-label required">Estimated_Budget</label>
+                        <div class="col-sm-8">
+                        <input type="number" class="form-control" name="Estimated_Budget" placeholder="Rs."required>
+                        </div>
+                      </div>
+                       
+                      <br/>
+                      <br/>
+                      <h4>Land Details</h4>
+
+                      <div class="form-group row mt-3">
+                        <label for="Location" class="col-sm-2 col-form-label">Location</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" class="form-control" name="Location" placeholder="Location">
+                        </div>
+                      </div>
+    
+                      <div class="form-group row mt-3">
+                        <label for="Plan_of_the_Land" class="col-sm-2 col-form-label">Plan_of_the_Land</label>
+                        <div class="col-sm-8">
+                        <input type="file" class="form-control" name="Plan_of_the_Land" placeholder="Select file">
+                        </div>
+                      </div>
+                        <br/>
+                        <br/>
+
+                      <h4>No of Rooms</h4>
+                      <div class="form-group row mt-3">
+                        <label for="Bed_Rooms" class="col-sm-2 col-form-label">Bed_Rooms</label>
+                        <div class="col-sm-8">
+                        <input type="number" class="form-control"  name="Bed_Rooms" placeholder="Bed_Rooms" >
+                        </div>
+                      </div>
+    
+                      <div class="form-group row mt-3">
+                        
+                        <label for="Bathrooms" class="col-sm-2 col-form-label">Bathrooms</label>
+                        <div class="col-sm-8">
+                        <input type="number" class="form-control" name="Bathrooms" placeholder="Bathrooms">
+                        </div>
+    
+                      </div>
+
+                        <br/>
+                        <br/>
+
+
+                     
+                        
+                        <input type="checkbox"  name="Parking_Area" placeholder="Parking_Area" value="required">
+                        
+                        <label for="Parking_Area" class="col-sm-2 col-form-label">Parking_Area</label>
+                       
+    
+                      
+
+                              
+                      <div class="form-group row mt-3">
+                        <label for="Other_Requirements" class="col-sm-2 col-form-label" >Other_Requirements</label>
+                        <div class="col-sm-8">
+                        <textarea class="form-control"  name="Other_Requirements" placeholder="Other_Requirements"  ></textarea>
+                        </div>
+                      </div>
+                      <center>
+                        <button type="submit" class="btn btn-success col-sm-1 mt-3"><b>Submit</b></button>
+                        </center>
+                    </form>
+                <center>
+                    <a href='/client_project_architects/<%= data._id %>'><button class='btn btn-info col-sm-1 mt-3'><b>Clear</b></button></a>
+                </center>
+    
+                      
+                    
+    
+                  
+                  </form>
+            </div>
+        </div>
+    </div>
+          
+    </div>   
+                  
+                  
+                
+              
+      
+
+      <%- include('layout/footer')%> 

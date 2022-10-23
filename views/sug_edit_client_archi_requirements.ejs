@@ -1,0 +1,140 @@
+<%- include('layout/header')%>
+
+            
+                
+<div class = "frameAddArchiForm">
+    <div class="container">
+        <div >
+            <div >
+                <h3 class="container mt-5 d-flex justify-content-center">Edit Requirements</h3>
+    
+                <% if(typeof alert != 'undefined') { %>
+                  <% alert.forEach(function(error) { %>
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          <strong><%= error.msg %></strong>
+                          <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                  <% }) %>
+              <% } %>
+    
+                <form action='/update_architect_requirements/<%= data._id%>' method="post" id="ädd-form" enctype="multipart/form-data" >
+                  <div  class="form-group row mt-3">
+                    
+                    <label for="Architecture" class="col-sm-2 col-form-label required"> Architect Name</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" name="Architecture" placeholder="Architectur" value="<%= data.Architecture%>">
+                    </div>
+                  </div>
+    
+                    <div class="form-group row mt-3">
+                      <label for="Client_Name" class="col-sm-2 col-form-label required"> Client_Name</label>
+                      <div class="col-sm-8">
+                      <input type="text" class="form-control" name="Client_Name" aria-describedby="Client_Name" placeholder="Client_Name" value="<%= data.Client_Name%>">
+                      </div>
+                    </div>
+       
+                    <div class="form-group row mt-3">
+                        <label for="Email" class="col-sm-2 col-form-label required">Email</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="Email" placeholder="Email" value="<%= data.Email%>">
+                        </div>
+                      </div>
+    
+    
+                      <div class="form-group row mt-3">
+                        <label for="Builging_Type" class="col-sm-2 col-form-label required">Builging_Type</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="Builging_Type" placeholder="Builging_Type" value="<%= data.Builging_Type%>">
+                        </div>
+                      </div>
+    
+    
+                      <div class="form-group row mt-3">
+                        <label for="No_of_floors" class="col-sm-2 col-form-label required">No_of_floors</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="No_of_floors" placeholder="No_of_floors" value="<%= data.No_of_floors %>" >
+                        </div>
+                      </div>
+    
+                      <div class="form-group row mt-3">
+                        <label for="Estimated_Budget" class="col-sm-2 col-form-label required">Estimated_Budget</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="Estimated_Budget" placeholder="Estimated_Budget" value="<%= data.Estimated_Budget %>" >
+                        </div>
+                      </div>
+                       
+                      <div class="form-group row mt-3">
+                        <label for="Location" class="col-sm-2 col-form-label required">Location</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" class="form-control" name="Location" placeholder="Location"  value="<%= data.Location %>">
+                        </div>
+                      </div>
+    
+                      <div class="form-group row mt-3">
+                        <label for="Plan_of_the_Land" class="col-sm-2 col-form-label">Plan_of_the_Land</label>
+                        <div class="col-sm-8">
+                        <input type="file" class="form-control" name="Plan_of_the_Land" placeholder="Select file">
+                        <img src="/<%= data.Plan_of_the_Land %>" width="100" class="thumbnail mt-1"/>
+                       <input type="hidden" class="form-control" name="old_Plan_of_the_Land" value="<%= data.Plan_of_the_Land %>" >
+                        </div>
+                      </div>
+                              
+                      <div class="form-group row mt-3">
+                        <label for="Bed_Rooms" class="col-sm-2 col-form-label">Bed_Rooms</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control"  name="Bed_Rooms" placeholder="Bed_Rooms" value="<%= data.Bed_Rooms %>" >
+                        </div>
+                      </div>
+    
+                      <div class="form-group row mt-3">
+                        
+                        <label for="Bathrooms" class="col-sm-2 col-form-label">Bathrooms</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="Bathrooms" placeholder="Bathrooms" value="<%= data.Bathrooms %>">
+                        </div>
+    
+                      </div>
+
+              
+
+
+                      <div class="form-group row mt-3">
+                        
+                        <label for="Parking_Area" class="col-sm-2 col-form-label">Parking_Area</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="Parking_Area" placeholder="Parking_Area" value="<%= data.Parking_Area %>">
+                        </div>
+    
+                      </div>
+
+                              
+                      <div class="form-group row mt-3">
+                        <label for="Other_Requirements" class="col-sm-2 col-form-label" >Other_Requirements</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control"  name="Other_Requirements" placeholder="Other_Requirements" value="<%= data.Other_Requirements %>"  >
+                        </div>
+                      </div>
+                      <center>
+                        <button type="submit" class="btn btn-success col-sm-1 mt-3"><b>Submit</b></button>
+                        </center>
+                    </form>
+               
+                      
+                    
+    
+                  
+                  </form>
+            </div>
+        </div>
+    </div>
+          
+    </div>   
+                  
+                  
+                
+              
+      
+
+      <%- include('layout/footer')%> 

@@ -1,0 +1,118 @@
+<%- include('layout/header')%>
+    <div class="container frameClientSpReq">
+        <div>
+            <div>
+                <% if (message) { %>
+                    <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <strong>
+                            <%= message.message %>
+                        </strong>
+                    </div>
+                    <% } %>
+                    <div class="canvas_div_pdf">
+                        <h1 class="d-flex justify-content-center">Intirior Designer Requirements</h1>
+                        <br>
+                        <%if(clientIntiriorDesignerReqs!=''){%>
+                            <% clientIntiriorDesignerReqs.forEach((row,index)=>{%>
+                        
+                                <div class="cUd">
+                                    <dl class="row">
+                                        <dt class="col-sm-3">Intirior Designer</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.InteriorName%>
+                                        </dd>
+
+                                        <dt class="col-sm-3">Client Name</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.ClientName%>
+                                        </dd>
+
+                                        <dt class="col-sm-3">Email</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Email%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Mobile Number</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Phone%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Location</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Location%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Theme Colour</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.ThemeColour%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 "> Roof Colour</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row. RoofColour%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Floor Colour</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.FloorColour%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Require Funiture</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Funiture%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Require Pantry Set</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Pantry%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Require Deco</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Deco%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Estimated Budget</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.Budget%>
+                                        </dd>
+
+                                        <dt class="col-sm-3 ">Special Requirements</dt>
+                                        <dd class="col-sm-8">
+                                            <%= row.SpecialReq%>
+                                        </dd>
+                        
+                                    </dl>
+                                </div>
+                                </div>
+                                <center>
+                                    <button class="btn btn-outline-info btn-lg" onclick="getPDF();">
+                                        <i class="fa-solid fa-download">
+                                        </i> Download
+                                        </button>
+
+                                    <a href="/editClientIntiriorDesigner/<%=row._id%>" class="text-success"> 
+                                    <button class="btn btn-outline-warning btn-lg">
+                                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                                    </button>
+                                    </a>
+
+                                    <a href="/deleteClientIntiriorDesignerReq/<%=row._id%>" class="text-success">
+                                    <button class="btn btn-outline-danger btn-lg" onclick="return confirm('Are you sure you want to Delete Intirior Requirements?');">
+                                    <i class="fa-solid fa-trash">
+                                    </i>Delete
+                                    </button>
+                                        
+                 
+                                </center>
+                                <%})%>
+                                <%}else{%>
+                                <h1 class="text-center text-secondary mt-5">No Intirior Designer Requirements found in the database !
+                                </h1>
+                              <%}%>
+            </div>
+        </div>
+    </div>
+ </div>
+<%- include('layout/footer')%>
